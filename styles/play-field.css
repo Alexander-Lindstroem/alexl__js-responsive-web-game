@@ -13,7 +13,7 @@
     grid-template: 1fr  1fr / 1fr;
     max-width: 405px;
     width: 100%;
-    background-color: beige;
+    background-color: whitesmoke;
     border-radius: 10px;
     padding: 16px;
 }
@@ -23,7 +23,7 @@
 }
 
 .question__character {
-    font-size: 4rem;
+    font-size: 3rem;
     user-select: none;
     text-align: center;
 }
@@ -185,6 +185,7 @@
 .help__tab .curve {
     background-color: grey;
     z-index: 200;
+    pointer-events: none;
 }
 
 .score-tab .mask {
