@@ -1,11 +1,12 @@
 $( () => {
-  const GAME_LIMIT = 20;
+  const GAME_LIMIT = 10;
   const DIFFICULTY_BUTTONS = $(".difficulty-button")
   let currentWord;
   let pastWords = [];
   let currentAnswer;
   let difficulty;
   let userScore;
+  let prevScore = {score: "", difficulty: ""};
   let questionsAnswered;
   
   function Word(kanji, reading, romaji, meaning, type) {
@@ -142,18 +143,23 @@ $( () => {
 
   const selectDifficulty = () => {
     $(DIFFICULTY_BUTTONS).each((index, button) => {
+      let buttonText = $(button).text();
       $(button).on({
         "click": () => {
-          difficulty = $(button).text().toLowerCase()
+          difficulty = buttonText.toLowerCase()
           unselectDiffcultyButtons();
           $(button).addClass("selected")
           $(".start-game__button").prop("disabled", false)
         },
         "mouseover": () => {
           $(button).addClass("hover")
+          if (prevScore.difficulty === buttonText.toLowerCase()) {
+            $(button).text(`Previous score: ${prevScore.score}/${GAME_LIMIT}`)
+          }
         },
         "mouseleave": () => {
           $(button).removeClass("hover")
+          $(button).text(`${buttonText}`)
         }
       })
     })
@@ -313,7 +319,12 @@ $( () => {
   userAnswer();
 
   const playAgain = () => {
-    $(".game-over__play-again").on("click", () => initializeGame())
+    $(".game-over__play-again").on("click", () => {
+      prevScore.score = userScore;
+      prevScore.difficulty = difficulty;
+      console.log(prevScore)
+      initializeGame();
+    })
   }
   playAgain();
 

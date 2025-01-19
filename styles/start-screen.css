@@ -34,6 +34,7 @@
   }
   
   .difficulty-button {
+    font-size: 1.2rem;
     width: 65%;
     padding: 16px;
     margin: 8px;
@@ -58,10 +59,7 @@
     max-width: 275px;
   }
   
-  .hover {
-    background-color: red;
-  }
-  
   .selected {
-    background: blue;
+    background-color: #24292e;
+    color: white;
   }
