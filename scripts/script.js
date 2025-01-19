@@ -251,11 +251,18 @@ $( () => {
 
   const displayGameOverScreen = () => {
     $(".game-over").show()
+    let message = $(".game-over__message");
     if (userScore === GAME_LIMIT) {
       $(".game-over__title").text("VICTORY!")
-      $(".game-over__message").text(`You scored a perfect game! Wow, you must really know your Japanese! Do you still want to play again?`)
+      if (difficulty === "normal") {
+        message.text(`You scored a perfect game! Wow, you must really know your kanas by now! Play again and see if you can beat a harder difficulty!`)
+      } else if (difficulty === "hard") {
+        message.text(`You scored a perfect game! Your kanji skills are really up there! This is no easy task, you know! Perhaps you can also beat very hard? Give it a try!`)
+      } else if (difficulty === "very hard") {
+        message.text(`You scored a perfect game! Incredible, this game cannot challenge you any more. If you still find it fun, you could maybe consider playing again anyway?`)
+      }
     } else {
-      $(".game-over__message").text(`You scored ${userScore} points out of a total possible ${GAME_LIMIT} points. Play again and try to get a perfect score!`)
+      message.text(`You scored ${userScore} points out of a total possible ${GAME_LIMIT} points. Play again and try to get a perfect score!`)
     }
   }
 
