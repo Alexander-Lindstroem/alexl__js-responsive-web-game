@@ -1,0 +1,67 @@
+.start-screen {
+  flex-grow: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .introduction__title {
+    text-align: center;
+    margin: 0;
+  }
+  
+  .introduction__message {
+    width: 80%;
+  }
+  
+  .difficulty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .difficulty-container__title {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+  
+  .difficulty-button {
+    width: 65%;
+    padding: 16px;
+    margin: 8px;
+    border-radius: 10px;
+    border: 0;
+    max-width: 222px;
+  }
+  
+  .start-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .start-game__button {
+    font-size: 2rem;
+    width: 80%;
+    padding: 16px;
+    margin: 8px;
+    border-radius: 10px;
+    border: 0;
+    max-width: 275px;
+  }
+  
+  .hover {
+    background-color: red;
+  }
+  
+  .selected {
+    background: blue;
+  }

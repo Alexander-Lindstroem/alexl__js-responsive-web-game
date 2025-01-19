@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Japanese</title>
+    <link rel="stylesheet" href="./styles/general.css">
+    <link rel="stylesheet" href="./styles/play-field.css">
+    <link rel="stylesheet" href="./styles/start-screen.css">
+    <link rel="stylesheet" href="./styles/variables.css">
+    <link rel="stylesheet" href="./styles/kana-table.css">
+    <script src="./scripts/jquery-3.7.1.min.js"></script>
+    <script src="./scripts/script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__page-title">Guess the Japanese</h1>
+    </header>
+    <main class="main">
+        <section class="start-screen" >
+            <div class="introduction">
+                <h3 class="introduction__title">Welcome</h3>
+                <p class="introduction__message">
+                    To play this game, you will first have to select a difficulty below, and then click "Start game" at which point you will have <b><span class="introduction__message--tries">00</span></b> total guesses.
+                    <br>
+                    <br><b>Normal</b> difficulty only has you guess the pronounciation of Japanese words from their kana spellings.
+                    <br><b>Hard</b> has you guess the pronounciation of Japanese words from their kanji spellings.
+                    <br><b>Very hard</b> has you guess the pronounciation of Japanese words from their kanji spellings <i>and</i> makes you guess their meaning as well.</p>
+            </div>
+            <div class="difficulty-container">
+                <h3 class="difficulty-container__title">Choose your difficulty</h3>
+                <button class="difficulty-button normal">Normal</button>
+                <button class="difficulty-button hard">Hard</button>
+                <button class="difficulty-button very-hard">Very Hard</button>
+            </div>
+            <div class="start-game">
+                <button class="start-game__button">Start Game</button>
+            </div>
+        </section>
+        <section class="play-field" >
+            <div class="score-tab">
+                <p></p>
+                <div class="left curve"></div>
+                <div class="left mask"></div>
+                <div class="right curve"></div>
+                <div class="right mask"></div>
+            </div>
+            <div class="QA-field">
+                <div class="question">
+                    <div class="question__character"></div>
+                    <div class="question__meaning"></div>
+                </div>
+                <div class="answer">
+                    <button class="answer__cell"></button>
+                    <button class="answer__cell"></button>
+                    <button class="answer__cell"></button>
+                    <button class="answer__cell"></button>
+                </div>
+            </div>
+            <div class="game-over">
+                <div class="game-over__content">
+                    <h3 class="game-over__title">Game over!</h3>
+                    <div class="game-over__message"></div>
+                    <button class="game-over__play-again">Play Again</button>
+                </div>
+            </div>
+            <div class="help">
+                <div class="help__content">
+                    <img class="down-arrow" src="./images/down-arrow.png" alt="DOWN">
+                    <div class="kana-table">
+                        <div class="table-container standard">
+                            <div></div>
+                            <div>A</div>
+                            <div>I</div>
+                            <div>U</div>
+                            <div>E</div>
+                            <div>O</div>
+                            <div>#</div>
+                            <div><span class="front">あ</span><span class="back">A</span></div>
+                            <div><span class="front">い</span><span class="back">I</span></div>
+                            <div><span class="front">う</span><span class="back">U</span></div>
+                            <div><span class="front">え</span><span class="back">E</span></div>
+                            <div><span class="front">お</span><span class="back">O</span></div>
+                            <div>K</div>
+                            <div><span class="front">か</span><span class="back">KA</span></div>
+                            <div><span class="front">き</span><span class="back">KI</span></div>
+                            <div><span class="front">く</span><span class="back">KU</span></div>
+                            <div><span class="front">け</span><span class="back">KE</span></div>
+                            <div><span class="front">こ</span><span class="back">KO</span></div>
+                            <div>G</div>
+                            <div><span class="front">が</span><span class="back">GA</span></div>
+                            <div><span class="front">ぎ</span><span class="back">GI</span></div>
+                            <div><span class="front">ぐ</span><span class="back">GU</span></div>
+                            <div><span class="front">げ</span><span class="back">GE</span></div>
+                            <div><span class="front">ご</span><span class="back">GO</span></div>
+                            <div>S</div>
+                            <div><span class="front">さ</span><span class="back">SA</span></div>
+                            <div class="exception"><span class="front">し</span><span class="back">SHI</span></div>
+                            <div><span class="front">す</span><span class="back">SU</span></div>
+                            <div><span class="front">せ</span><span class="back">SE</span></div>
+                            <div><span class="front">そ</span><span class="back">SO</span></div>
+                            <div>Z</div>
+                            <div><span class="front">ざ</span><span class="back">ZA</span></div>
+                            <div class="exception"><span class="front">じ</span><span class="back">JI</span></div>
+                            <div><span class="front">ず</span><span class="back">ZU</span></div>
+                            <div><span class="front">ぜ</span><span class="back">ZE</span></div>
+                            <div><span class="front">ぞ</span><span class="back">ZO</span></div>
+                            <div>T</div>
+                            <div><span class="front">た</span><span class="back">TA</span></div>
+                            <div class="exception"><span class="front">ち</span><span class="back">CHI</span></div>
+                            <div class="exception"><span class="front">つ</span><span class="back">TSU</span></div>
+                            <div><span class="front">て</span><span class="back">TE</span></div>
+                            <div><span class="front">と</span><span class="back">TO</span></div>
+                            <div>D</div>
+                            <div><span class="front">だ</span><span class="back">DA</span></div>
+                            <div class="exception"><span class="front">ぢ</span><span class="back">JI</span></div>
+                            <div class="exception"><span class="front">づ</span><span class="back">ZU</span></div>
+                            <div><span class="front">で</span><span class="back">DE</span></div>
+                            <div><span class="front">ど</span><span class="back">DO</span></div>
+                            <div>N</div>
+                            <div><span class="front">な</span><span class="back">NA</span></div>
+                            <div><span class="front">に</span><span class="back">NI</span></div>
+                            <div><span class="front">ぬ</span><span class="back">NU</span></div>
+                            <div><span class="front">ね</span><span class="back">NE</span></div>
+                            <div><span class="front">の</span><span class="back">NO</span></div>
+                            <div>H</div>
+                            <div><span class="front">は</span><span class="back">HA</span></div>
+                            <div><span class="front">ひ</span><span class="back">HI</span></div>
+                            <div class="exception"><span class="front">ふ</span><span class="back">FU</span></div>
+                            <div><span class="front">へ</span><span class="back">HE</span></div>
+                            <div><span class="front">ほ</span><span class="back">HO</span></div>
+                            <div>B</div>
+                            <div><span class="front">ば</span><span class="back">BA</span></div>
+                            <div><span class="front">び</span><span class="back">BI</span></div>
+                            <div><span class="front">ぶ</span><span class="back">BU</span></div>
+                            <div><span class="front">べ</span><span class="back">BE</span></div>
+                            <div><span class="front">ぼ</span><span class="back">BO</span></div>
+                            <div>P</div>
+                            <div><span class="front">ぱ</span><span class="back">PA</span></div>
+                            <div><span class="front">ぴ</span><span class="back">PI</span></div>
+                            <div><span class="front">ぷ</span><span class="back">PU</span></div>
+                            <div><span class="front">ぺ</span><span class="back">PE</span></div>
+                            <div><span class="front">ぽ</span><span class="back">PO</span></div>
+                            <div>M</div>
+                            <div><span class="front">ま</span><span class="back">MA</span></div>
+                            <div><span class="front">み</span><span class="back">MI</span></div>
+                            <div><span class="front">む</span><span class="back">MU</span></div>
+                            <div><span class="front">め</span><span class="back">ME</span></div>
+                            <div><span class="front">も</span><span class="back">MO</span></div>
+                            <div>Y</div>
+                            <div><span class="front">や</span><span class="back">YA</span></div>
+                            <div></div>
+                            <div><span class="front">ゆ</span><span class="back">YU</span></div>
+                            <div></div>
+                            <div><span class="front">よ</span><span class="back">YO</span></div>
+                            <div>R</div>
+                            <div><span class="front">ら</span><span class="back">RA</span></div>
+                            <div><span class="front">り</span><span class="back">RI</span></div>
+                            <div><span class="front">る</span><span class="back">RU</span></div>
+                            <div><span class="front">れ</span><span class="back">RE</span></div>
+                            <div><span class="front">ろ</span><span class="back">RO</span></div>
+                            <div>W</div>
+                            <div><span class="front">わ</span><span class="back">WA</span></div>
+                            <div class="exception"><span class="front">ゐ</span><span class="back">I</span></div>
+                            <div></div>
+                            <div class="exception"><span class="front">ゑ</span><span class="back">E</span></div>
+                            <div class="exception"><span class="front">を</span><span class="back">O</span></div>
+                        </div>
+                        <div class="table-container special">
+                            <div></div>
+                            <div>YA</div>
+                            <div>YU</div>
+                            <div>YO</div>
+                            <div>K</div>
+                            <div><span class="front">きゃ</span><span class="back">KYA</span></div>
+                            <div><span class="front">きゅ</span><span class="back">KYU</span></div>
+                            <div><span class="front">きょ</span><span class="back">KYO</span></div>
+                            <div>G</div>
+                            <div><span class="front">ぎゃ</span><span class="back">GYA</span></div>
+                            <div><span class="front">ぎゅ</span><span class="back">GYU</span></div>
+                            <div><span class="front">ぎょ</span><span class="back">GYO</span></div>
+                            <div>S</div>
+                            <div><span class="front">しゃ</span><span class="back">SHA</span></div>
+                            <div><span class="front">しゅ</span><span class="back">SHU</span></div>
+                            <div><span class="front">しょ</span><span class="back">SHO</span></div>
+                            <div>J</div>
+                            <div><span class="front">じゃ</span><span class="back">JA</span></div>
+                            <div><span class="front">じゅ</span><span class="back">JU</span></div>
+                            <div><span class="front">じょ</span><span class="back">JO</span></div>
+                            <div>CH</div>
+                            <div><span class="front">ちゃ</span><span class="back">CHA</span></div>
+                            <div><span class="front">ちゅ</span><span class="back">CHU</span></div>
+                            <div><span class="front">ちょ</span><span class="back">CHO</span></div>
+                            <div>N</div>
+                            <div><span class="front">にゃ</span><span class="back">NYA</span></div>
+                            <div><span class="front">にゅ</span><span class="back">NYU</span></div>
+                            <div><span class="front">にょ</span><span class="back">NYO</span></div>
+                            <div>H</div>
+                            <div><span class="front">ひゃ</span><span class="back">HYA</span></div>
+                            <div><span class="front">ひゅ</span><span class="back">HYU</span></div>
+                            <div><span class="front">ひょ</span><span class="back">HYO</span></div>
+                            <div>B</div>
+                            <div><span class="front">びゃ</span><span class="back">BYA</span></div>
+                            <div><span class="front">びゅ</span><span class="back">BYU</span></div>
+                            <div><span class="front">びょ</span><span class="back">BYO</span></div>
+                            <div>P</div>
+                            <div><span class="front">ぴゃ</span><span class="back">PYA</span></div>
+                            <div><span class="front">ぴゅ</span><span class="back">PYU</span></div>
+                            <div><span class="front">ぴょ</span><span class="back">PYO</span></div>
+                            <div>M</div>
+                            <div><span class="front">みゃ</span><span class="back">MYA</span></div>
+                            <div><span class="front">みゅ</span><span class="back">MYU</span></div>
+                            <div><span class="front">みょ</span><span class="back">MYO</span></div>
+                            <div>R</div>
+                            <div><span class="front">りゃ</span><span class="back">RYA</span></div>
+                            <div><span class="front">りゅ</span><span class="back">RYU</span></div>
+                            <div><span class="front">りょ</span><span class="back">RYO</span></div>
+                        </div>
+                        <div class="table-container exceptions">
+                            <div>Isolated "n" consonant</div>
+                            <div><span class="front">ん</span><span class="back">N</span></div>
+                            <div>Extends vowel</div>
+                            <div>ー</div>
+                            <div>Germinates consonant</div>
+                            <div>っ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="help__tab">
+                    <p>Help</p>
+                    <div class="left curve"></div>
+                    <div class="left mask"></div>
+                    <div class="right curve"></div>
+                    <div class="right mask"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

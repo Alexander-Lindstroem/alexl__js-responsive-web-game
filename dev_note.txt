@@ -1,0 +1,13 @@
+Features:
+
+1. Difficulty level
+    - Normal
+        - Hiragana + Katakana
+    - Hard
+        - Kanji (lol) and no hints
+    - Very Hard
+        - Kanji and bonus question where you have to guess the meaning too
+
+2. Mobile focused
+    - Welcome page with start button
+    - Hint tab which pops out the kana table

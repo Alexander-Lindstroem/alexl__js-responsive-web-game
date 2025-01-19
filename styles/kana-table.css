@@ -1,0 +1,54 @@
+.kana-table {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 550px;
+    margin-top: 32px;
+}
+
+.table-container {
+    margin: 16px;
+    display: grid;
+    gap: 2px;
+  }
+  
+.table-container.standard {
+    grid-template: repeat(16, 1fr) / repeat(6, 1fr);
+}
+
+.table-container.special {
+    grid-template: repeat(11, 1fr) / repeat(4, 1fr);
+}
+
+.table-container.exceptions {
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+}
+
+.table-container div {
+    background-color: black;
+    height: 100%;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+div.exception {
+    background-color: red;
+}
+
+.back {
+    display: none;
+}
+
+.table-container div:hover > .front {
+    display: none;
+}
+
+.table-container div:hover > .back {
+    display: inline;
+}
+
+@media screen and (min-width: 475px) {
+.table-container div {
+    font-size: 1.4rem;
+}
+}
