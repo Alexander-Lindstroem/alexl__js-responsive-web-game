@@ -35,16 +35,15 @@ div.exception {
     background-color: red;
 }
 
+.back,
+.front {
+    display: block;
+    cursor: pointer;
+    user-select: none;
+}
+
 .back {
     display: none;
-}
-
-.table-container div:hover > .front {
-    display: none;
-}
-
-.table-container div:hover > .back {
-    display: inline;
 }
 
 @media screen and (min-width: 475px) {
